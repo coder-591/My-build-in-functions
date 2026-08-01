@@ -106,15 +106,24 @@ String.prototype.MySplit = function (spearator) {
 
 // includes buildin function for array and string
 
-const arr2 = [1, 7, 3, 4, 5, 6, 5, 4, 3, 4];
+const arr2 = [1, 7, , , 5, 6, 5, 4, 3, 4];
 Array.prototype.myIncludesfunc = function (searchItem, fromIndex = 0) {
+  if (fromIndex < 0) {
+    console.log("Negative values is not allow it always start with 0");
+    fromIndex = 0;
+  }
+
   for (let i = fromIndex; i < this.length; i++) {
-    if (this[i] === searchItem) {
+    if (
+      this[i] === searchItem ||
+      Number.isNaN(this[i] && Number.isNaN(searchItem))
+    ) {
       return true;
     }
   }
+
   return false;
 };
 
 // console.log(arr2.includes(7));
-console.log(arr2.myIncludesfunc(7, 5));
+console.log(arr2.myIncludesfunc(undefined, -4));
