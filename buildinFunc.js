@@ -20,7 +20,7 @@ function idGenerator() {
 // join function that join string with any joiner you pass and it return new string
 const name = "Afaqcoder";
 const username = "programmer";
-const arr = [
+const arr1 = [
   "JavaScript",
   "ReactJS",
   "NextJS",
@@ -43,7 +43,7 @@ String.prototype.Myjoin = function (joiner = ",") {
 Array.prototype.Myjoin = function (joiner = " | ") {
   let result = "";
   for (let i = 0; i < this.length; i++) {
-    result += this[i] + (i != this.length - 1 ? joiner : "");
+    result = result + (this[i] + (i != this.length - 1 ? joiner : ""));
     // console.log(i, "!=", input.length - 1,result);
   }
   return result;
@@ -87,7 +87,7 @@ String.prototype.MySplit = function (spearator) {
       newArr.push(word);
     }
   }
-  
+
   let word = "";
   for (let i = c; i < this.length; i++) {
     // console.log("Last sperator",c ,"and loop index",i,"and str length",this.length);
@@ -102,4 +102,19 @@ String.prototype.MySplit = function (spearator) {
 
 // console.log(str.MySplit());
 // console.log(str.MySplit(" "));
-console.log(str.MySplit("-"));
+// console.log(str.MySplit("-"));
+
+// includes buildin function for array and string
+
+const arr2 = [1, 7, 3, 4, 5, 6, 5, 4, 3, 4];
+Array.prototype.myIncludesfunc = function (searchItem, fromIndex = 0) {
+  for (let i = fromIndex; i < this.length; i++) {
+    if (this[i] === searchItem) {
+      return true;
+    }
+  }
+  return false;
+};
+
+// console.log(arr2.includes(7));
+console.log(arr2.myIncludesfunc(7, 5));
