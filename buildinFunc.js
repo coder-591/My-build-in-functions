@@ -126,4 +126,77 @@ Array.prototype.myIncludesfunc = function (searchItem, fromIndex = 0) {
 };
 
 // console.log(arr2.includes(7));
-console.log(arr2.myIncludesfunc(undefined, -4));
+// console.log(arr2.myIncludesfunc(undefined, -4));
+
+// Slice build in function
+
+const a =
+  "My brain can learn anything if I repeat it daily and that the whole point and only matters";
+const tools = [
+  "JavaScript",
+  "ReactJS",
+  "NextJS",
+  "TypeScript",
+  "NodeJS",
+  "ReduxToolKit",
+];
+
+String.prototype.mySliceFunc = function (start, end = this.length) {
+  let text = "";
+
+  for (let i = start; i < end; i++) {
+    text = text + this[i];
+  }
+  return text;
+};
+
+// console.log(a.slice(3));
+// console.log(a.mySliceFunc(3));
+
+Array.prototype.mySliceFunc = function (start, end = this.length) {
+  let arr = [];
+  let c = 0;
+
+  for (let i = start; i < end; i++) {
+    arr[c++] = this[i];
+  }
+  return arr;
+};
+
+// console.log(tools.slice(1,3));
+// console.log(tools.mySliceFunc(1,3));
+// console.log(tools);
+
+// Splice build in function
+
+Array.prototype.mySpliceFunc = function (start, deleteCount) {
+  if (start == undefined) return [];
+
+  deleteCount  = Math.min(deleteCount, this.length - start);// ?
+  let newArr = [];
+  let c = 0;
+
+  for (let i = start; i < this.length; i++) {
+    if (c == deleteCount) break;
+    newArr[c++] = this[i];
+  }
+
+  for (let i = 0; i < deleteCount; i++) {
+    if (start >= 0 && start < this.length) {
+      for (let j = start; j < this.length; j++) {
+        this[j] = this[j + 1];
+      }
+    }
+  }
+
+  this.length -= deleteCount
+
+  return newArr;
+};
+
+const num = [1, 2, 3, 4, 5];
+
+// console.log(num.splice(1, 5));
+console.log(num.mySpliceFunc(0,4));
+
+console.log(num);
