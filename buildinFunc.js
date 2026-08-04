@@ -172,7 +172,8 @@ Array.prototype.mySliceFunc = function (start, end = this.length) {
 Array.prototype.mySpliceFunc = function (start, deleteCount) {
   if (start == undefined) return [];
 
-  deleteCount  = Math.min(deleteCount, this.length - start);// ?
+  deleteCount = Math.min(deleteCount, this.length - start); // ?
+
   let newArr = [];
   let c = 0;
 
@@ -189,7 +190,7 @@ Array.prototype.mySpliceFunc = function (start, deleteCount) {
     }
   }
 
-  this.length -= deleteCount
+  this.length -= deleteCount;
 
   return newArr;
 };
@@ -197,6 +198,6 @@ Array.prototype.mySpliceFunc = function (start, deleteCount) {
 const num = [1, 2, 3, 4, 5];
 
 // console.log(num.splice(1, 5));
-console.log(num.mySpliceFunc(0,4));
+console.log(num.mySpliceFunc(0, 4));
 
 console.log(num);
