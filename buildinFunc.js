@@ -171,7 +171,7 @@ Array.prototype.mySliceFunc = function (start, end = this.length) {
 Array.prototype.mySpliceFunc = function (start, deleteCount) {
   if (start == undefined) return [];
 
-  deleteCount = Math.min(deleteCount, this.length - start); // ?
+  deleteCount = Math.min(deleteCount, this.length - start); //=> ?
 
   let newArr = [];
   let c = 0;

@@ -61,10 +61,17 @@ const combineArr = [...arr1, ...arr2, ...values];
 // this keyword it refer to the context ?
 
 const obj = {
-  username:"afaq",
-  age:20,
-  wellcome: function(){
-    console.log(this); 
-  }
+  username: "afaq",
+  age: 20,
+  wellcome: function () {
+    console.log(this);
+  },
+};
+
+// rest operator
+
+function restOperator(...num) {
+  console.log(num);
 }
 
+restOperator(1,2,3,4,5)
