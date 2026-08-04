@@ -168,7 +168,6 @@ Array.prototype.mySliceFunc = function (start, end = this.length) {
 // console.log(tools);
 
 // Splice build in function
-
 Array.prototype.mySpliceFunc = function (start, deleteCount) {
   if (start == undefined) return [];
 
@@ -176,12 +175,12 @@ Array.prototype.mySpliceFunc = function (start, deleteCount) {
 
   let newArr = [];
   let c = 0;
-
+  //  copying
   for (let i = start; i < this.length; i++) {
     if (c == deleteCount) break;
     newArr[c++] = this[i];
   }
-
+  //  shifting
   for (let i = 0; i < deleteCount; i++) {
     if (start >= 0 && start < this.length) {
       for (let j = start; j < this.length; j++) {
@@ -196,8 +195,6 @@ Array.prototype.mySpliceFunc = function (start, deleteCount) {
 };
 
 const num = [1, 2, 3, 4, 5];
-
 // console.log(num.splice(1, 5));
 console.log(num.mySpliceFunc(0, 4));
-
 console.log(num);
