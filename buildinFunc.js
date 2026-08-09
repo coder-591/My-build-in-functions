@@ -1,5 +1,4 @@
 // Randam id generator
-
 function idGenerator() {
   let randomId = "";
   const alphabets = "abcdefghijklmnopqurstuvwxyz";
@@ -14,7 +13,6 @@ function idGenerator() {
 
   return randomId;
 }
-
 // console.log(idGenerator());
 
 // join function that join string with any joiner you pass and it return new string
@@ -96,7 +94,6 @@ String.prototype.MySplit = function (spearator) {
       newArr.push(word);
     }
   }
-
   return newArr;
 };
 
@@ -132,14 +129,6 @@ Array.prototype.myIncludesfunc = function (searchItem, fromIndex = 0) {
 
 const a =
   "My brain can learn anything if I repeat it daily and that the whole point and only matters";
-const tools = [
-  "JavaScript",
-  "ReactJS",
-  "NextJS",
-  "TypeScript",
-  "NodeJS",
-  "ReduxToolKit",
-];
 
 String.prototype.mySliceFunc = function (start, end = this.length) {
   let text = "";
@@ -150,8 +139,8 @@ String.prototype.mySliceFunc = function (start, end = this.length) {
   return text;
 };
 
-// console.log(a.slice(3));
-// console.log(a.mySliceFunc(3));
+// console.log(a.slice(3,12));
+// console.log(a.mySliceFunc(3,12));
 
 Array.prototype.mySliceFunc = function (start, end = this.length) {
   let arr = [];
@@ -168,6 +157,7 @@ Array.prototype.mySliceFunc = function (start, end = this.length) {
 // console.log(tools);
 
 // Splice build in function
+
 Array.prototype.mySpliceFunc = function (start, deleteCount) {
   if (start == undefined) return [];
 
@@ -194,7 +184,37 @@ Array.prototype.mySpliceFunc = function (start, deleteCount) {
   return newArr;
 };
 
-const num = [1, 2, 3, 4, 5];
+// const num = [1, 2, 3, 4, 5];
 // console.log(num.splice(1, 5));
-console.log(num.mySpliceFunc(0, 4));
-console.log(num);
+// console.log(num.mySpliceFunc(0, 4));
+// console.log(num);
+
+// Map build in function
+
+const tools = [
+  "JavaScript",
+  "ReactJS",
+  "NextJS",
+  "TypeScript",
+  "NodeJS",
+  "ReduxToolKit",
+];
+
+Array.prototype.myMapFunc = function (callBackFunc) {
+  let newArr = [];
+  for (let i = 0; i < this.length; i++) {
+    newArr[i] = callBackFunc(this[i], i, this);
+    // console.log(newArr[i]);
+  }
+  return newArr;
+};
+
+console.log(
+  tools.myMapFunc((tool, idx, arr) => {
+    return tool;
+  }),
+);
+
+// console.log(tools.map((tool, idx, arr) => {
+//   return tool
+// }));
