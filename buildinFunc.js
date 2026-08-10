@@ -27,6 +27,15 @@ const arr1 = [
   "ReduxToolKit",
 ];
 
+const tools = [
+  "JavaScript",
+  "ReactJS",
+  "NextJS",
+  "TypeScript",
+  "NodeJS",
+  "ReduxToolKit",
+];
+
 // My join Function for string datatype
 String.prototype.Myjoin = function (joiner = ",") {
   let result = "";
@@ -191,30 +200,45 @@ Array.prototype.mySpliceFunc = function (start, deleteCount) {
 
 // Map build in function
 
-const tools = [
-  "JavaScript",
-  "ReactJS",
-  "NextJS",
-  "TypeScript",
-  "NodeJS",
-  "ReduxToolKit",
-];
-
 Array.prototype.myMapFunc = function (callBackFunc) {
   let newArr = [];
   for (let i = 0; i < this.length; i++) {
     newArr[i] = callBackFunc(this[i], i, this);
-    // console.log(newArr[i]);
   }
   return newArr;
 };
 
-console.log(
-  tools.myMapFunc((tool, idx, arr) => {
-    return tool;
-  }),
-);
+// console.log(
+//   tools.myMapFunc((tool, idx, arr) => {
+//     return tool;
+//   }),
+// );
 
 // console.log(tools.map((tool, idx, arr) => {
 //   return tool
 // }));
+
+// filter build in function
+
+Array.prototype.myFilterFunc = function (callBackFunc) {
+  const arr = [];
+  let c = 0;
+
+  for (let i = 0; i < this.length; i++) {
+    const res = callBackFunc(this[i], i, this);
+    if (res) {
+      arr[c] = this[i];
+      c++
+    }
+  }
+
+  return arr;
+};
+
+console.log(tools.filter((tool) => tool == "ReactJS"));
+
+console.log(
+  tools.myFilterFunc(function (tool) {
+    return tool == "ReactJS";
+  }),
+);
