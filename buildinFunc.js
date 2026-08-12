@@ -27,15 +27,6 @@ const arr1 = [
   "ReduxToolKit",
 ];
 
-const tools = [
-  "JavaScript",
-  "ReactJS",
-  "NextJS",
-  "TypeScript",
-  "NodeJS",
-  "ReduxToolKit",
-];
-
 // My join Function for string datatype
 String.prototype.Myjoin = function (joiner = ",") {
   let result = "";
@@ -166,7 +157,6 @@ Array.prototype.mySliceFunc = function (start, end = this.length) {
 // console.log(tools);
 
 // Splice build in function
-
 Array.prototype.mySpliceFunc = function (start, deleteCount) {
   if (start == undefined) return [];
 
@@ -219,26 +209,98 @@ Array.prototype.myMapFunc = function (callBackFunc) {
 // }));
 
 // filter build in function
-
 Array.prototype.myFilterFunc = function (callBackFunc) {
   const arr = [];
   let c = 0;
-
   for (let i = 0; i < this.length; i++) {
     const res = callBackFunc(this[i], i, this);
     if (res) {
       arr[c] = this[i];
-      c++
+      c++;
     }
   }
-
   return arr;
 };
 
-console.log(tools.filter((tool) => tool == "ReactJS"));
+// console.log(tools.filter((tool) => tool == "ReactJS"));
+// console.log(
+//   tools.myFilterFunc(function (tool) {
+//     return tool == "ReactJS";
+//   }),
+// );
 
-console.log(
-  tools.myFilterFunc(function (tool) {
-    return tool == "ReactJS";
-  }),
-);
+const tools = [
+  "JavaScript",
+  "ReactJS",
+  "NextJS",
+  "TypeScript",
+  "Node",
+  "ReduxToolKit",
+];
+// some build in function
+Array.prototype.mySome = function (callBackFunc) {
+  // console.log("Now is this keyword value is :", this);
+
+  for (let i = 0; i < this.length; i++) {
+    let val = callBackFunc(this[i]);
+    if (val) {
+      return true;
+    }
+  }
+  return false;
+};
+
+// console.log(tools.some((word)=> word === "Node" ));
+// console.log(tools.mySome((word)=> word === "Node"));
+
+// push build in function
+const languages = [];
+Array.prototype.myPush = function (...rest) {
+  let c = this.length;
+  for (let i = 0; i < rest.length; i++) {
+    this[c++] = rest[i];
+  }
+  return this;
+};
+
+// languages.push("Java","C++","JavaScript","swift","php")
+// console.log(languages);
+// languages.push("python")
+// console.log(languages);
+
+// languages.myPush("Java", "C++", "JavaScript", "swift", "php");
+// console.log(languages);
+// languages.myPush("python")
+// console.log(languages);
+
+// pop build in function
+Array.prototype.myPop = function () {
+  const val = this[this.length - 1];
+  this.length--;
+  return val;
+};
+
+// console.log(languages.pop());
+// console.log(languages.myPop());
+// console.log(languages);
+
+// toString build in function
+let number = [];
+Array.prototype.myToString = function () {
+  let toString = "";
+  let coma = ",";
+  if (Array.isArray(this)) {
+    for (let i = 0; i < this.length; i++) {
+      toString += this[i];
+      if (i != this.length - 1) {
+        toString += coma;
+      }
+    }
+    return toString;
+  }
+  
+};
+
+number.myPush(1, 2, 3, 4, 5, 6, 7);
+console.log("Create a arr of numbers: ", number);
+console.log(number.myToString())
