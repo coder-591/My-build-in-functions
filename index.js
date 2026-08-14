@@ -71,7 +71,19 @@ const obj = {
 // rest operator
 
 function restOperator(...num) {
-  console.log(num);
+  console.log(typeof num);
 }
 
-restOperator(1,2,3,4,5)
+// restOperator(1, 2, 3, 4, 5);
+
+// This keyWord
+
+function aboutThis() {
+  console.log(this);
+}
+// aboutThis();
+
+
+
+
+

@@ -301,6 +301,12 @@ Array.prototype.myToString = function () {
   
 };
 
-number.myPush(1, 2, 3, 4, 5, 6, 7);
-console.log("Create a arr of numbers: ", number);
-console.log(number.myToString())
+// number.myPush(1, 2, 3, 4, 5, 6, 7);
+// console.log("Create a arr of numbers: ", number);
+// console.log(number.myToString())
+
+
+
+
+
+
