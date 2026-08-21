@@ -77,13 +77,17 @@ function restOperator(...num) {
 // restOperator(1, 2, 3, 4, 5);
 
 // This keyWord
-
 function aboutThis() {
   console.log(this);
 }
 // aboutThis();
 
-
-
-
-
+// Promises
+const promise1 = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    console.log("Promise 1 is run");
+    resolve("Afaq");
+  }, 1000);
+}).then((val) => {
+  console.log("Then runs", val);
+});

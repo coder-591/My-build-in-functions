@@ -127,7 +127,7 @@ Array.prototype.myIncludesfunc = function (searchItem, fromIndex = 0) {
 
 // Slice build in function
 
-const a =
+const myBelief =
   "My brain can learn anything if I repeat it daily and that the whole point and only matters";
 
 String.prototype.mySliceFunc = function (start, end = this.length) {
@@ -159,9 +159,7 @@ Array.prototype.mySliceFunc = function (start, end = this.length) {
 // Splice build in function
 Array.prototype.mySpliceFunc = function (start, deleteCount) {
   if (start == undefined) return [];
-
-  deleteCount = Math.min(deleteCount, this.length - start); //=> ?
-
+  deleteCount = Math.min(deleteCount, this.length - start); // => ?
   let newArr = [];
   let c = 0;
   //  copying
@@ -203,7 +201,6 @@ Array.prototype.myMapFunc = function (callBackFunc) {
 //     return tool;
 //   }),
 // );
-
 // console.log(tools.map((tool, idx, arr) => {
 //   return tool
 // }));
@@ -298,15 +295,40 @@ Array.prototype.myToString = function () {
     }
     return toString;
   }
-  
 };
 
 // number.myPush(1, 2, 3, 4, 5, 6, 7);
 // console.log("Create a arr of numbers: ", number);
 // console.log(number.myToString())
 
+// every build in function and not complete
+Array.prototype.mySort = function (callBackFunc) {
+  let res = null;
+  let j = 1;
+  for (let c = 0; c < this.length; c++) {
+    for (let i = 0; i <= this.length - j; i++) {
+      res = callBackFunc(this[i], this[i + 1]);
+      if (res > 0) {
+        let temp = this[i];
+        this[i] = this[i + 1];
+        this[i + 1] = temp;
+      }
+      // if (res < 0) {
+      //   let temp = this[i];
+      //   this[i] = this[i + 1];
+      //   this[i + 1] = temp;
+      // }
+    }
+    j++;
+  }
 
+  return "function end";
+};
 
+number.myPush(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
-
-
+// console.log(number.reverse());
+number.mySort((a, b) => b - a);
+console.log(number);
+number.mySort((a, b) => console.log(a + " - " + b + " = " + (a -b)));
+// console.log(number);
