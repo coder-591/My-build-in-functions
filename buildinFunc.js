@@ -81,7 +81,7 @@ String.prototype.MySplit = function (spearator) {
         // if (this[j] === spearator) j++; we can do this too
         word = word + this[j];
       }
-      c = i + 1; // but it looks clean
+      c = i + 1; // but it looks cleaner
       newArr.push(word);
     }
   }
@@ -97,7 +97,7 @@ String.prototype.MySplit = function (spearator) {
   return newArr;
 };
 
-// console.log(str.MySplit());
+// console.log(str.MySplit(""));
 // console.log(str.MySplit(" "));
 // console.log(str.MySplit("-"));
 
@@ -262,7 +262,7 @@ Array.prototype.myPush = function (...rest) {
 
 // languages.push("Java","C++","JavaScript","swift","php")
 // console.log(languages);
-// languages.push("python")
+// languages.push("python","rust")
 // console.log(languages);
 
 // languages.myPush("Java", "C++", "JavaScript", "swift", "php");
@@ -325,10 +325,9 @@ Array.prototype.mySort = function (callBackFunc) {
   return "function end";
 };
 
-number.myPush(1, 2, 3, 4, 5, 6, 7, 8, 9);
-
+// number.myPush(1, 2, 3, 4, 5, 6, 7, 8, 9);
 // console.log(number.reverse());
-number.mySort((a, b) => b - a);
-console.log(number);
-number.mySort((a, b) => console.log(a + " - " + b + " = " + (a -b)));
+// number.mySort((a, b) => b - a);
+// console.log(number);
+// number.mySort((a, b) => console.log(a + " - " + b + " = " + (a -b)));
 // console.log(number);

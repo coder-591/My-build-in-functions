@@ -16,7 +16,7 @@
         background-color: black;
         z-index: 999;
         cursor: pointer;
-        position:absolute;
+        position: absolute;
         border-radius: 100%;
       }
     </style>
@@ -63,6 +63,11 @@
       document.querySelector(".alpha").addEventListener("dragover", (e) => {
         item.style.top = e.clientY + "px";
         item.style.left = e.clientX + "px";
+        console.log(e);
+      });
+
+      // ======================================mouse wheel  event ==========================================================
+      document.querySelector(".alpha").addEventListener("wheel", (e) => {
         console.log(e);
       });
     </script>
