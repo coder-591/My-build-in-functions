@@ -38,24 +38,24 @@
       // });
 
       // Key down event ***************************************************
-      // let i = 0;
-      // // const alphabets = document.querySelector(".alpha");
+      let i = 0;
+      const alphabets = document.querySelector(".alpha");
 
-      // for (let i = 97; i <= 122; i++) {
-      //   let span = document.createElement("span");
-      //   span.innerText = String.fromCharCode(i);
-      //   alphabets.appendChild(span);
-      // }
-      // alphabets.style.fontSize = "50px";
+      for (let i = 97; i <= 122; i++) {
+        let span = document.createElement("span");
+        span.innerText = String.fromCharCode(i);
+        alphabets.appendChild(span);
+      }
+      alphabets.style.fontSize = "50px";
 
-      // document.querySelector(".body").addEventListener("keydown", (e) => {
-      //   if (alphabets.childNodes[i].innerText == e.key) {
-      //     alphabets.childNodes[i].style.color = "green";
-      //     i++;
-      //   } else {
-      //     alphabets.childNodes[i].style.color = "red";
-      //   }
-      // });
+      document.querySelector(".body").addEventListener("keydown", (e) => {
+        if (alphabets.childNodes[i].innerText == e.key) {
+          alphabets.childNodes[i].style.color = "green";
+          i++;
+        } else {
+          alphabets.childNodes[i].style.color = "red";
+        }
+      });
 
       // checking all events
       const item = document.querySelector(".circle");

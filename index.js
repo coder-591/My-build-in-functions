@@ -83,11 +83,50 @@ function aboutThis() {
 // aboutThis();
 
 // Promises
-const promise1 = new Promise(function (resolve, reject) {
-  setTimeout(() => {
-    console.log("Promise 1 is run");
-    resolve("Afaq");
-  }, 1000);
-}).then((val) => {
-  console.log("Then runs", val);
-});
+// const promise1 = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//   resolve("Afaq");
+//   }, 1000);
+// }).then((val) =>g("Promise 1 is run");
+//    {
+//   console.log("Then runs", val);
+// });
+
+// About classes
+class User {
+  constructor(username, email, password) {
+    this.username = username;
+    this.email = email;
+    this.password = password;
+  }
+}
+
+// and its behind the scenes
+function myUser(username, email, password) {
+  this.username = username;
+  this.email = email;
+  this.password = password;
+  return this
+}
+
+const chai = new myUser("Afaq","afaq@gmail.com","12345")
+
+// console.log(chai);
+
+// console.log(this);
+
+
+
+const a = 5 
+// a += 6
+
+// console.log(a);
+
+
+const user = {
+  username:"afaq"
+}
+
+user.username = "Ali"
+
+console.log(user);

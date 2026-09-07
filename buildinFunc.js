@@ -331,3 +331,35 @@ Array.prototype.mySort = function (callBackFunc) {
 // console.log(number);
 // number.mySort((a, b) => console.log(a + " - " + b + " = " + (a -b)));
 // console.log(number);
+
+// toUpperCase build in function
+const user = "shayan";
+String.prototype.myToUpperCaseFunc = function () {
+  let upperCase = "";
+
+  for (let i = 0; i < this.length; i++) {
+    //  character to number
+    let assci = this.charCodeAt(i) - 32;
+    //  number to character
+    upperCase += String.fromCharCode(assci);
+  }
+  return upperCase;
+};
+
+// console.log(user.myToUpperCaseFunc());
+// console.log(user.toUpperCase())
+// console.log(user);
+
+// find build in method
+
+Array.prototype.myFindFunc = function (callBackFunc) {
+  for (let i = 0; i < this.length; i++) {
+    if (callBackFunc(this[i])) {
+      return this[i];
+    }
+  }
+  return undefined;
+};
+
+console.log(tools.myFindFunc((element) => element === "NodeJS"));
+
