@@ -110,23 +110,52 @@ function myUser(username, email, password) {
 }
 
 const chai = new myUser("Afaq","afaq@gmail.com","12345")
-
 // console.log(chai);
-
 // console.log(this);
 
 
-
+// practice the const keyword
 const a = 5 
 // a += 6
-
 // console.log(a);
-
 
 const user = {
   username:"afaq"
 }
-
 user.username = "Ali"
+// console.log(user);
 
-console.log(user);
+
+// objects deep details
+
+const detail = Object.getOwnPropertyDescriptor(Math,"PI")
+// console.log(detail);
+
+const newObj = {
+  username:"afaq",
+  age:21
+}
+
+// console.log(Object.getOwnPropertyDescriptor(newObj,"username"));
+
+Object.defineProperty(newObj,"username",{
+  // writable:false,
+  // enumerable:false
+})
+
+// console.log(Object.getOwnPropertyDescriptor(newObj,"username"));
+
+// newObj.username = "ali"
+
+// console.log(newObj.username);
+
+
+console.log(Object.entries(newObj))
+console.log(Object.keys(newObj))
+console.log(Object.values(newObj))
+
+
+
+
+
+
