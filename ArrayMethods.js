@@ -7,7 +7,7 @@ function idGenerator() {
   const arr = [...alphabets, ...numbers, ...specialChar];
 
   for (let i = 0; i < 6; i++) {
-    let idx = Math.floor(Math.random() * 51);
+    let idx = Math.floor(Math.random() * arr.length - 1);
     randomId = randomId + arr[idx];
   }
 
@@ -15,9 +15,6 @@ function idGenerator() {
 }
 // console.log(idGenerator());
 
-// join function that join string with any joiner you pass and it return new string
-const name = "Afaqcoder";
-const username = "programmer";
 const arr1 = [
   "JavaScript",
   "ReactJS",
@@ -26,17 +23,7 @@ const arr1 = [
   "NodeJS",
   "ReduxToolKit",
 ];
-
-// My join Function for string datatype
-String.prototype.Myjoin = function (joiner = ",") {
-  let result = "";
-  for (let i = 0; i < this.length; i++) {
-    result += this[i] + (i != this.length - 1 ? joiner : "");
-    // console.log(i, "!=", input.length - 1,result);
-  }
-  return result;
-};
-
+// join function that join string with any joiner you pass and it return new string
 // My join Function for array datatype
 Array.prototype.Myjoin = function (joiner = " | ") {
   let result = "";
@@ -47,62 +34,7 @@ Array.prototype.Myjoin = function (joiner = " | ") {
   return result;
 };
 
-// console.log(username.Myjoin());
-// console.log(arr.Myjoin(" | "));
-// console.log(join(name, joiner));
-// console.log(name);
-
-// JS join function
-// const arr = [1, 2, 3, 4, 5, 6, 7];
-// console.log(arr.join());
-
-// now My split funciton and split is for string
-const str =
-  "apple,banana,orange,mango,grapes,kiwi-watermelon,pineapple,strawberry,blueberry";
-
-String.prototype.MySplit = function (spearator) {
-  let newArr = [];
-  let c = 0;
-
-  if (!spearator) {
-    newArr.push(this);
-    return newArr;
-  }
-
-  if (!this.includes(spearator)) {
-    newArr.push(this);
-    return newArr;
-  }
-
-  for (let i = 0; i < this.length; i++) {
-    if (this[i] === spearator) {
-      let word = "";
-      for (let j = c; j < i; j++) {
-        // if (this[j] === spearator) j++; we can do this too
-        word = word + this[j];
-      }
-      c = i + 1; // but it looks cleaner
-      newArr.push(word);
-    }
-  }
-
-  let word = "";
-  for (let i = c; i < this.length; i++) {
-    // console.log("Last sperator",c ,"and loop index",i,"and str length",this.length);
-    word = word + this[i];
-    if (i == this.length - 1) {
-      newArr.push(word);
-    }
-  }
-  return newArr;
-};
-
-// console.log(str.MySplit(""));
-// console.log(str.MySplit(" "));
-// console.log(str.MySplit("-"));
-
 // includes buildin function for array and string
-
 const arr2 = [1, 7, , , 5, 6, 5, 4, 3, 4];
 Array.prototype.myIncludesfunc = function (searchItem, fromIndex = 0) {
   if (fromIndex < 0) {
@@ -121,26 +53,8 @@ Array.prototype.myIncludesfunc = function (searchItem, fromIndex = 0) {
 
   return false;
 };
-
 // console.log(arr2.includes(7));
 // console.log(arr2.myIncludesfunc(undefined, -4));
-
-// Slice build in function
-
-const myBelief =
-  "My brain can learn anything if I repeat it daily and that the whole point and only matters";
-
-String.prototype.mySliceFunc = function (start, end = this.length) {
-  let text = "";
-
-  for (let i = start; i < end; i++) {
-    text = text + this[i];
-  }
-  return text;
-};
-
-// console.log(a.slice(3,12));
-// console.log(a.mySliceFunc(3,12));
 
 Array.prototype.mySliceFunc = function (start, end = this.length) {
   let arr = [];
@@ -155,6 +69,7 @@ Array.prototype.mySliceFunc = function (start, end = this.length) {
 // console.log(tools.slice(1,3));
 // console.log(tools.mySliceFunc(1,3));
 // console.log(tools);
+
 
 // Splice build in function
 Array.prototype.mySpliceFunc = function (start, deleteCount) {
@@ -175,7 +90,6 @@ Array.prototype.mySpliceFunc = function (start, deleteCount) {
       }
     }
   }
-
   this.length -= deleteCount;
 
   return newArr;
@@ -187,7 +101,6 @@ Array.prototype.mySpliceFunc = function (start, deleteCount) {
 // console.log(num);
 
 // Map build in function
-
 Array.prototype.myMapFunc = function (callBackFunc) {
   let newArr = [];
   for (let i = 0; i < this.length; i++) {
@@ -253,16 +166,25 @@ Array.prototype.mySome = function (callBackFunc) {
 // push build in function
 const languages = [];
 Array.prototype.myPush = function (...rest) {
-  let c = this.length;
+  console.log(rest);
+  
+  console.log("IN push function");
+  
+    
+//   let c = this.length;
   for (let i = 0; i < rest.length; i++) {
-    this[c++] = rest[i];
+    this[i] = rest[i];
   }
+  console.log("after loop");
+  
+  
   return this;
 };
 
 // languages.push("Java","C++","JavaScript","swift","php")
 // console.log(languages);
 // languages.push("python","rust")
+
 // console.log(languages);
 
 // languages.myPush("Java", "C++", "JavaScript", "swift", "php");
@@ -332,26 +254,8 @@ Array.prototype.mySort = function (callBackFunc) {
 // number.mySort((a, b) => console.log(a + " - " + b + " = " + (a -b)));
 // console.log(number);
 
-// toUpperCase build in function
-const user = "shayan";
-String.prototype.myToUpperCaseFunc = function () {
-  let upperCase = "";
-
-  for (let i = 0; i < this.length; i++) {
-    //  character to number
-    let assci = this.charCodeAt(i) - 32;
-    //  number to character
-    upperCase += String.fromCharCode(assci);
-  }
-  return upperCase;
-};
-
-// console.log(user.myToUpperCaseFunc());
-// console.log(user.toUpperCase())
-// console.log(user);
 
 // find build in method
-
 Array.prototype.myFindFunc = function (callBackFunc) {
   for (let i = 0; i < this.length; i++) {
     if (callBackFunc(this[i])) {
@@ -361,5 +265,4 @@ Array.prototype.myFindFunc = function (callBackFunc) {
   return undefined;
 };
 
-console.log(tools.myFindFunc((element) => element === "NodeJS"));
-
+// console.log(tools.myFindFunc((element) => element === "NodeJS"));
