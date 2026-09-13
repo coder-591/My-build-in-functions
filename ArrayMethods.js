@@ -70,7 +70,6 @@ Array.prototype.mySliceFunc = function (start, end = this.length) {
 // console.log(tools.mySliceFunc(1,3));
 // console.log(tools);
 
-
 // Splice build in function
 Array.prototype.mySpliceFunc = function (start, deleteCount) {
   if (start == undefined) return [];
@@ -166,31 +165,19 @@ Array.prototype.mySome = function (callBackFunc) {
 // push build in function
 const languages = [];
 Array.prototype.myPush = function (...rest) {
-  console.log(rest);
-  
-  console.log("IN push function");
-  
-    
-//   let c = this.length;
+  let c = this.length;
   for (let i = 0; i < rest.length; i++) {
-    this[i] = rest[i];
+    this[c] = rest[i];
+    c++;
   }
-  console.log("after loop");
-  
-  
   return this;
 };
 
-// languages.push("Java","C++","JavaScript","swift","php")
-// console.log(languages);
-// languages.push("python","rust")
-
-// console.log(languages);
-
 // languages.myPush("Java", "C++", "JavaScript", "swift", "php");
 // console.log(languages);
-// languages.myPush("python")
-// console.log(languages);
+// languages.myPush("python");
+// console.log(languages)
+
 
 // pop build in function
 Array.prototype.myPop = function () {
@@ -253,7 +240,6 @@ Array.prototype.mySort = function (callBackFunc) {
 // console.log(number);
 // number.mySort((a, b) => console.log(a + " - " + b + " = " + (a -b)));
 // console.log(number);
-
 
 // find build in method
 Array.prototype.myFindFunc = function (callBackFunc) {
