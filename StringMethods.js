@@ -33,17 +33,15 @@ String.prototype.MySplit = function (spearator) {
     if (this[i] === spearator) {
       let word = "";
       for (let j = c; j < i; j++) {
-        // if (this[j] === spearator) j++; we can do this too
         word = word + this[j];
       }
-      c = i + 1; // but it looks cleaner
+      c = i + 1;
       newArr.push(word);
     }
   }
 
   let word = "";
   for (let i = c; i < this.length; i++) {
-    // console.log("Last sperator",c ,"and loop index",i,"and str length",this.length);
     word = word + this[i];
     if (i == this.length - 1) {
       newArr.push(word);
@@ -61,7 +59,6 @@ const myBelief =
 
 String.prototype.mySliceFunc = function (start, end = this.length) {
   let text = "";
-
   for (let i = start; i < end; i++) {
     text = text + this[i];
   }
@@ -70,7 +67,6 @@ String.prototype.mySliceFunc = function (start, end = this.length) {
 
 // console.log(a.slice(3,12));
 // console.log(a.mySliceFunc(3,12));
-
 
 // toUpperCase build in function
 const user = "shayan";
@@ -89,3 +85,27 @@ String.prototype.myToUpperCaseFunc = function () {
 // console.log(user.myToUpperCaseFunc());
 // console.log(user.toUpperCase())
 // console.log(user);
+
+// trim build in function
+String.prototype.trimfunc = function () {
+  let newStr = "";
+  // afaq ali
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] !== " ") {
+      newStr += this[i];
+    } else {
+      if (this[i - 1] !== " ") {
+        for (let j = i + 1; j < this.length; j++) {
+          if (this[j] !== " ") {
+            newStr += this[j];
+          }
+        }
+      }
+    }
+  }
+
+  return newStr;
+};
+
+// console.log("afaq ali".trim())
+console.log("afaq ali".trimfunc());

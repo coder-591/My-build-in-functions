@@ -23,16 +23,22 @@ const arr1 = [
   "NodeJS",
   "ReduxToolKit",
 ];
+
 // join function that join string with any joiner you pass and it return new string
 // My join Function for array datatype
 Array.prototype.Myjoin = function (joiner = " | ") {
   let result = "";
   for (let i = 0; i < this.length; i++) {
-    result = result + (this[i] + (i != this.length - 1 ? joiner : ""));
-    // console.log(i, "!=", input.length - 1,result);
+    result  = result + this[i];
+    if(i != this.length -1 ){
+       result  += joiner;
+    }
   }
   return result;
 };
+
+console.log(arr1.Myjoin());
+
 
 // includes buildin function for array and string
 const arr2 = [1, 7, , , 5, 6, 5, 4, 3, 4];
@@ -90,7 +96,6 @@ Array.prototype.mySpliceFunc = function (start, deleteCount) {
     }
   }
   this.length -= deleteCount;
-
   return newArr;
 };
 
@@ -146,10 +151,9 @@ const tools = [
   "Node",
   "ReduxToolKit",
 ];
+
 // some build in function
 Array.prototype.mySome = function (callBackFunc) {
-  // console.log("Now is this keyword value is :", this);
-
   for (let i = 0; i < this.length; i++) {
     let val = callBackFunc(this[i]);
     if (val) {

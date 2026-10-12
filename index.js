@@ -92,6 +92,7 @@ function aboutThis() {
 //   console.log("Then runs", val);
 // });
 
+
 // About classes
 class User {
   constructor(username, email, password) {
@@ -144,9 +145,7 @@ Object.defineProperty(newObj,"username",{
 })
 
 // console.log(Object.getOwnPropertyDescriptor(newObj,"username"));
-
 // newObj.username = "ali"
-
 // console.log(newObj.username);
 
 
